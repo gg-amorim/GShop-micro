@@ -11,7 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{AF4A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{C8B81CD0-4978-4A51-8CAB-B9F55B1ABB39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GShop.ProductApi", "GShop.ProductApi\GShop.ProductApi.csproj", "{F9E384CF-5EC6-47EA-A8FB-0C7BAB66BE78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GShop.ProductApi", "GShop.ProductApi\GShop.ProductApi.csproj", "{F9E384CF-5EC6-47EA-A8FB-0C7BAB66BE78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GShop.Web", "GShop.Web\GShop.Web.csproj", "{819D5720-396F-4034-A454-1A57A2053D57}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +25,17 @@ Global
 		{F9E384CF-5EC6-47EA-A8FB-0C7BAB66BE78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9E384CF-5EC6-47EA-A8FB-0C7BAB66BE78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9E384CF-5EC6-47EA-A8FB-0C7BAB66BE78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{819D5720-396F-4034-A454-1A57A2053D57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{819D5720-396F-4034-A454-1A57A2053D57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{819D5720-396F-4034-A454-1A57A2053D57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{819D5720-396F-4034-A454-1A57A2053D57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F9E384CF-5EC6-47EA-A8FB-0C7BAB66BE78} = {EA256A1C-0BE4-47B1-BF88-8A8871F7A999}
+		{819D5720-396F-4034-A454-1A57A2053D57} = {E43E5F09-E5CB-4A0C-A043-F3A721F26E19}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7D185DA6-1BEC-4477-B8AB-C3CED6E302DE}

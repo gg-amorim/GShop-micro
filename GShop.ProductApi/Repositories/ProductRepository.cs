@@ -16,13 +16,14 @@ public class ProductRepository : IProductRepository
 
     public async Task<IEnumerable<Product>> GetAll()
     {
-        return await _context.Products.AsNoTracking().ToListAsync();
+        return await _context.Products.Include(x=> x.Category).AsNoTracking().ToListAsync();
     }
 
     public async Task<Product> GetById(Guid id)
     {
-        return await _context.Products.AsNoTracking()
+        return await _context.Products.Include(x => x.Category)
                                       .Where(x => x.Id.Equals(id))
+                                      .AsNoTracking()
                                       .FirstOrDefaultAsync();
     }
 
