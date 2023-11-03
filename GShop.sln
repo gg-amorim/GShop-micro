@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{E43E5F09-E5CB-4A0C-A043-F3A721F26E19}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{EA256A1C-0BE4-47B1-BF88-8A8871F7A999}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{AF4A3DE6-8EFA-4739-8593-0E43F01C3361}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{C8B81CD0-4978-4A51-8CAB-B9F55B1ABB39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GShop.ProductApi", "GShop.ProductApi\GShop.ProductApi.csproj", "{F9E384CF-5EC6-47EA-A8FB-0C7BAB66BE78}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9E384CF-5EC6-47EA-A8FB-0C7BAB66BE78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9E384CF-5EC6-47EA-A8FB-0C7BAB66BE78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9E384CF-5EC6-47EA-A8FB-0C7BAB66BE78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9E384CF-5EC6-47EA-A8FB-0C7BAB66BE78}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F9E384CF-5EC6-47EA-A8FB-0C7BAB66BE78} = {EA256A1C-0BE4-47B1-BF88-8A8871F7A999}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D185DA6-1BEC-4477-B8AB-C3CED6E302DE}
+	EndGlobalSection
+EndGlobal
