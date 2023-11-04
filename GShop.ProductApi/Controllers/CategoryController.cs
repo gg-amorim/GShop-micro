@@ -22,6 +22,8 @@ namespace GShop.ProductApi.Controllers
         public async Task<IActionResult> GetAllCategories()
         {
             var result = await _categoryService.GetCategoriesAsync();
+            if(result is null)  
+                return NotFound();
             return Ok(result);
         }
 
@@ -30,7 +32,9 @@ namespace GShop.ProductApi.Controllers
         public async Task<IActionResult> GetCategoriesProducts()
         {
             var result = await _categoryService.GetCategoriesProductsAsync();
-            return Ok(result);
+			if (result is null)
+				return NotFound();
+			return Ok(result);
         }
 
         [HttpGet]
@@ -38,29 +42,29 @@ namespace GShop.ProductApi.Controllers
         public async Task<IActionResult> GetCategoryById(Guid id)
         {
             var result = await _categoryService.GetCategoryByIdAsync(id);
-             if (!result.Success)
-                return NotFound(result);
-            return Ok(result);
+			if (result is null)
+				return NotFound();
+			return Ok(result);
         }
 
         [HttpPost]
         public async Task<IActionResult> CreateCategory([FromBody] CategoryDTO categoryDTO)
         {
             var result = await _categoryService.AddCategoryAsync(categoryDTO);
-            if (!result.Success)
-                return BadRequest(result);
+			if (result is null)
+				return BadRequest("Invalid Category");
 
-            return Ok(result);
+			return Ok(result);
         }
 
         [HttpPut]
         public async Task<IActionResult> UpdateCategory([FromBody] CategoryDTO categoryDTO)
         {
            var result = await _categoryService.UpdateCategoryAsync(categoryDTO);
-            if (!result.Success)
-                return BadRequest(result);
+			if (result is null)
+				return BadRequest("Invalid Category");
 
-            return Ok(result);
+			return Ok(result);
         }
 
         [HttpDelete]
@@ -68,10 +72,10 @@ namespace GShop.ProductApi.Controllers
         public async Task<IActionResult> RemoveCategory(Guid id)
         {
            var result = await _categoryService.RemoveCategoryAsync(id);
-            if (!result.Success)
-                return BadRequest(result);
+			if (!result)
+				return BadRequest("Invalid Category");
 
-            return Ok(result);
+			return Ok(result);
         }
     }
 }

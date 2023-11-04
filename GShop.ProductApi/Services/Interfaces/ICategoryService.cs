@@ -4,10 +4,10 @@ namespace GShop.ProductApi.Services.Interfaces;
 
 public interface ICategoryService
 {
-    Task<ResponseDTO> GetCategoriesAsync();
-    Task<ResponseDTO> GetCategoriesProductsAsync();
-    Task<ResponseDTO> GetCategoryByIdAsync(Guid id);
-    Task<ResponseDTO> AddCategoryAsync(CategoryDTO categoryDTO);
-    Task<ResponseDTO> UpdateCategoryAsync(CategoryDTO categoryDTO);
-    Task<ResponseDTO> RemoveCategoryAsync(Guid id);
+    Task<IEnumerable<CategoryDTO>> GetCategoriesAsync();
+    Task<IEnumerable<CategoryDTO>> GetCategoriesProductsAsync();
+    Task<CategoryDTO> GetCategoryByIdAsync(Guid id);
+    Task<CategoryDTO> AddCategoryAsync(CategoryDTO categoryDTO);
+    Task<CategoryDTO> UpdateCategoryAsync(CategoryDTO categoryDTO);
+    Task<bool> RemoveCategoryAsync(Guid id);
 }
