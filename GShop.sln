@@ -13,7 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GShop.ProductApi", "GShop.ProductApi\GShop.ProductApi.csproj", "{F9E384CF-5EC6-47EA-A8FB-0C7BAB66BE78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GShop.Web", "GShop.Web\GShop.Web.csproj", "{819D5720-396F-4034-A454-1A57A2053D57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GShop.Web", "GShop.Web\GShop.Web.csproj", "{819D5720-396F-4034-A454-1A57A2053D57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GShop.IdentityServer", "GShop.IdentityServer\GShop.IdentityServer.csproj", "{80F37E8C-11EF-4E36-BE20-72F5E6FA0DF1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{819D5720-396F-4034-A454-1A57A2053D57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{819D5720-396F-4034-A454-1A57A2053D57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{819D5720-396F-4034-A454-1A57A2053D57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80F37E8C-11EF-4E36-BE20-72F5E6FA0DF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80F37E8C-11EF-4E36-BE20-72F5E6FA0DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80F37E8C-11EF-4E36-BE20-72F5E6FA0DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80F37E8C-11EF-4E36-BE20-72F5E6FA0DF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F9E384CF-5EC6-47EA-A8FB-0C7BAB66BE78} = {EA256A1C-0BE4-47B1-BF88-8A8871F7A999}
 		{819D5720-396F-4034-A454-1A57A2053D57} = {E43E5F09-E5CB-4A0C-A043-F3A721F26E19}
+		{80F37E8C-11EF-4E36-BE20-72F5E6FA0DF1} = {EA256A1C-0BE4-47B1-BF88-8A8871F7A999}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7D185DA6-1BEC-4477-B8AB-C3CED6E302DE}
