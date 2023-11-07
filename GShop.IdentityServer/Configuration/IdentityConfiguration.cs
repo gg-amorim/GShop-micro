@@ -19,7 +19,7 @@ public static class IdentityConfiguration
     public static IEnumerable<ApiScope> ApiScopes =>
         new List<ApiScope>
         {
-            new ApiScope("gshop", "GShop Server"),
+            new ApiScope("gshop", "GShopServer"),
             new ApiScope(name:"read", "Read data."),
             new ApiScope(name:"write", "Write data."),
             new ApiScope(name:"delete", "Delete data."),

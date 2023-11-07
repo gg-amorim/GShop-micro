@@ -1,6 +1,8 @@
 ﻿using GShop.ProductApi.DTOs;
 using GShop.ProductApi.Repositories.Interfaces;
 using GShop.ProductApi.Services.Interfaces;
+using GShop.ProductApi.Utils;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +11,7 @@ namespace GShop.ProductApi.Controllers
 {
     [Route("api/category")]
     [ApiController]
+    [Authorize]
     public class CategoryController : ControllerBase
     {
         private readonly ICategoryService _categoryService;
@@ -69,6 +72,7 @@ namespace GShop.ProductApi.Controllers
 
         [HttpDelete]
         [Route("{id:Guid}")]
+        [Authorize(Roles = Role.Admin)]
         public async Task<IActionResult> RemoveCategory(Guid id)
         {
            var result = await _categoryService.RemoveCategoryAsync(id);

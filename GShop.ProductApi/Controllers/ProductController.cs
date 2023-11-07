@@ -1,6 +1,8 @@
 ﻿using GShop.ProductApi.DTOs;
 using GShop.ProductApi.Services;
 using GShop.ProductApi.Services.Interfaces;
+using GShop.ProductApi.Utils;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +10,7 @@ namespace GShop.ProductApi.Controllers
 {
     [Route("api/product")]
     [ApiController]
+    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
@@ -55,6 +58,7 @@ namespace GShop.ProductApi.Controllers
 
         [HttpDelete]
         [Route("{id:Guid}")]
+        [Authorize(Roles = Role.Admin)]
         public async Task<IActionResult> RemoveProduct(Guid id)
         {
             var result = await _productService.RemoveProductAsync(id);

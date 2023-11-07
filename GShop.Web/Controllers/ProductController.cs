@@ -1,5 +1,7 @@
 ﻿using GShop.Web.Models.Product;
 using GShop.Web.Services.Interfaces;
+using GShop.Web.Utils;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -15,6 +17,7 @@ public class ProductController : Controller
         _categoryService = categoryService;
     }
 
+    [Authorize]
     public async Task<IActionResult> IndexProduct()
     {
 
@@ -29,6 +32,7 @@ public class ProductController : Controller
 
     }
 
+    [Authorize]
     public async Task<IActionResult> CreateProduct()
     {
         ViewBag.CategoryId = new SelectList(await _categoryService.GetAllCategories(), "CategoryId", "Name");
@@ -36,6 +40,7 @@ public class ProductController : Controller
     }
 
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> CreateProduct(ProductViewModel productVM)
     {
         if (ModelState.IsValid)
@@ -56,6 +61,7 @@ public class ProductController : Controller
         return View(productVM);
     }
 
+    [Authorize]
     public async Task<IActionResult> UpdateProduct(Guid id)
     {
         ViewBag.CategoryId = new SelectList(await _categoryService.GetAllCategories(), "CategoryId", "Name");
@@ -70,6 +76,7 @@ public class ProductController : Controller
     }
 
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> UpdateProduct(ProductViewModel productVM)
     {
         if (ModelState.IsValid)
@@ -86,7 +93,7 @@ public class ProductController : Controller
         return View(productVM);
     }
 
-
+    [Authorize]
     public async Task<IActionResult> RemoveProduct(Guid id)
     {
         var result = await _productService.FindProductById(id);
@@ -99,6 +106,7 @@ public class ProductController : Controller
     }
 
     [HttpPost]
+    [Authorize(Roles = Role.Admin)]
     public async Task<IActionResult> RemoveProduct(ProductViewModel productVM)
     {
         var result = await _productService.RemoveProduct(productVM.Id);

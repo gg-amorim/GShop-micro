@@ -7,15 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{E4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{EA256A1C-0BE4-47B1-BF88-8A8871F7A999}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{AF4A3DE6-8EFA-4739-8593-0E43F01C3361}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{C8B81CD0-4978-4A51-8CAB-B9F55B1ABB39}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GShop.ProductApi", "GShop.ProductApi\GShop.ProductApi.csproj", "{F9E384CF-5EC6-47EA-A8FB-0C7BAB66BE78}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GShop.Web", "GShop.Web\GShop.Web.csproj", "{819D5720-396F-4034-A454-1A57A2053D57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GShop.IdentityServer", "GShop.IdentityServer\GShop.IdentityServer.csproj", "{80F37E8C-11EF-4E36-BE20-72F5E6FA0DF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GShop.IdentityServer", "GShop.IdentityServer\GShop.IdentityServer.csproj", "{80F37E8C-11EF-4E36-BE20-72F5E6FA0DF1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
