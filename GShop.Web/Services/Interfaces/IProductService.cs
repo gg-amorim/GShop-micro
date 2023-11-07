@@ -5,9 +5,9 @@ namespace GShop.Web.Services.Interfaces;
 
 public interface IProductService
 {
-    Task<IEnumerable<ProductViewModel>> GetAllProducts();
-    Task<ProductViewModel> FindProductById(Guid id);
-    Task<ProductViewModel> CreateProduct(ProductViewModel productVM);
-    Task<ProductViewModel> UpdateProduct(ProductViewModel productVM);
-    Task<bool> RemoveProduct(Guid id);
+    Task<IEnumerable<ProductViewModel>> GetAllProducts(string token);
+    Task<ProductViewModel> FindProductById(string token, Guid id);
+    Task<ProductViewModel> CreateProduct(string token, ProductViewModel productVM);
+    Task<ProductViewModel> UpdateProduct(string token, ProductViewModel productVM);
+    Task<bool> RemoveProduct(string token, Guid id);
 }

@@ -1,6 +1,7 @@
 ﻿using GShop.Web.Models.Product;
 using GShop.Web.Services.Interfaces;
 using GShop.Web.Utils;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -21,7 +22,7 @@ public class ProductController : Controller
     public async Task<IActionResult> IndexProduct()
     {
 
-        var response = await _productService.GetAllProducts();
+        var response = await _productService.GetAllProducts(await HttpContext.GetTokenAsync("access_token"));
         if (response is null)
         {
             TempData["error"] = "An unexpected error occurred";
@@ -35,7 +36,7 @@ public class ProductController : Controller
     [Authorize]
     public async Task<IActionResult> CreateProduct()
     {
-        ViewBag.CategoryId = new SelectList(await _categoryService.GetAllCategories(), "CategoryId", "Name");
+        ViewBag.CategoryId = new SelectList(await _categoryService.GetAllCategories(await HttpContext.GetTokenAsync("access_token")), "CategoryId", "Name");
         return View();
     }
 
@@ -45,7 +46,7 @@ public class ProductController : Controller
     {
         if (ModelState.IsValid)
         {
-            var result = await _productService.CreateProduct(productVM);
+            var result = await _productService.CreateProduct(await HttpContext.GetTokenAsync("access_token"),productVM);
             if (result is not null)
             {
                 TempData["success"] = "Product added successfully!";
@@ -55,7 +56,7 @@ public class ProductController : Controller
         }
         else
         {
-            ViewBag.CategoryId = new SelectList(await _categoryService.GetAllCategories(), "CategoryId", "Name");
+            ViewBag.CategoryId = new SelectList(await _categoryService.GetAllCategories(await HttpContext.GetTokenAsync("access_token")), "CategoryId", "Name");
         }
 
         return View(productVM);
@@ -64,8 +65,8 @@ public class ProductController : Controller
     [Authorize]
     public async Task<IActionResult> UpdateProduct(Guid id)
     {
-        ViewBag.CategoryId = new SelectList(await _categoryService.GetAllCategories(), "CategoryId", "Name");
-        var result = await _productService.FindProductById(id);
+        ViewBag.CategoryId = new SelectList(await _categoryService.GetAllCategories(await HttpContext.GetTokenAsync("access_token")), "CategoryId", "Name");
+        var result = await _productService.FindProductById(await HttpContext.GetTokenAsync("access_token"),id);
         if (result is null)
         {
             TempData["error"] = "An unexpected error occurred";
@@ -81,7 +82,7 @@ public class ProductController : Controller
     {
         if (ModelState.IsValid)
         {
-            var result = await _productService.UpdateProduct(productVM);
+            var result = await _productService.UpdateProduct(await HttpContext.GetTokenAsync("access_token"),productVM);
             if (result is not null)
             {
                 TempData["success"] = "Product updated successfully!";
@@ -96,7 +97,7 @@ public class ProductController : Controller
     [Authorize]
     public async Task<IActionResult> RemoveProduct(Guid id)
     {
-        var result = await _productService.FindProductById(id);
+        var result = await _productService.FindProductById(await HttpContext.GetTokenAsync("access_token"),id);
         if (result is null) {
             TempData["error"] = "An unexpected error occurred";
             return RedirectToAction(nameof(IndexProduct));
@@ -109,7 +110,7 @@ public class ProductController : Controller
     [Authorize(Roles = Role.Admin)]
     public async Task<IActionResult> RemoveProduct(ProductViewModel productVM)
     {
-        var result = await _productService.RemoveProduct(productVM.Id);
+        var result = await _productService.RemoveProduct(await HttpContext.GetTokenAsync("access_token"), productVM.Id);
 
         if (result)
         {

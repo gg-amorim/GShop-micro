@@ -1,6 +1,8 @@
+using Duende.IdentityServer.Services;
 using GShop.IdentityServer.Configuration;
 using GShop.IdentityServer.Data;
 using GShop.IdentityServer.Initializer;
+using GShop.IdentityServer.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -35,6 +37,7 @@ var builderIdentityServer = builder.Services.AddIdentityServer(options =>
 builderIdentityServer.AddDeveloperSigningCredential();
 
 builder.Services.AddScoped<IDatabaseInitializer, DatabaseInitializer>();
+builder.Services.AddScoped<IProfileService, ProfileAppService>();
 
 var app = builder.Build();
 
