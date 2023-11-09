@@ -1,8 +1,22 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<GShop.Web.Models.Product.ProductViewModel>
+<link rel="stylesheet" href="~/css/products.css" asp-append-version="true" />
+<fom>
+    <div class="container row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-2">
+                <a href="/Home/ProductDetails/@item.Id">
+                    <div class="card">
+                        <img src="/images/@item.ImageURL" class="img-thumbnail" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title mb-2">@item.Name</h5>
+                            <p class="card-text text-green" style="color:red; text-decoration: line-through; font-size: 12px">@((item.Price * 1.3M).ToString("C"))</p>
+                            <p class="card-text text-green" style="color:greenyellow;  font-size: 16px"><b>@item.Price.ToString("C")</b></p>
 
-<div class="text-center">
-   <h3>Shopping</h3>
-   <img src="/images/logo-shop.jpg" class="img-fluid" asp-append-version="true"/>
-</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</fom>

@@ -1,6 +1,7 @@
 using GShop.Web.Services;
 using GShop.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using System.IdentityModel.Tokens.Jwt;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,9 +24,28 @@ builder.Services.AddAuthentication(options =>
                     options.DefaultChallengeScheme = "oidc";
 
                 })
-                .AddCookie("Cookies", c => c.ExpireTimeSpan = TimeSpan.FromMinutes(10))
+                .AddCookie("Cookies", c =>
+                {
+                    c.ExpireTimeSpan = TimeSpan.FromMinutes(10);
+                    c.Events = new CookieAuthenticationEvents()
+                    {
+                        OnRedirectToAccessDenied = (context) =>
+                        {
+                            context.HttpContext.Response.Redirect(builder.Configuration["ServiceUrls:IdentityServer"] + "/Account/AccessDenied");
+                            return Task.CompletedTask;
+                        }
+                    };
+                })
                 .AddOpenIdConnect("oidc", options =>
                 {
+                    options.Events.OnRemoteFailure = context =>
+                    {
+                        context.Response.Redirect("/");
+                        context.HandleResponse();
+
+                        return Task.FromResult(0);
+                    };
+
                     options.Authority = builder.Configuration["ServiceUrls:IdentityServer"];
                     options.GetClaimsFromUserInfoEndpoint = true;
                     options.ClientId = "gshop";

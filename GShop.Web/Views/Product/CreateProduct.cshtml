@@ -1,5 +1,6 @@
 ﻿@model GShop.Web.Models.Product.ProductViewModel
 <form asp-action="CreateProduct">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="form-horizontal">
         <hr />
         <div class="form-group">
@@ -57,7 +58,3 @@
         </div>
     </div>
 </form>
-
-@section Scripts{
-    <partial name="_ValidationScriptsPartial" />
-}

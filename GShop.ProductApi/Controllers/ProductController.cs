@@ -10,7 +10,6 @@ namespace GShop.ProductApi.Controllers
 {
     [Route("api/product")]
     [ApiController]
-    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
@@ -21,13 +20,16 @@ namespace GShop.ProductApi.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAllProducts()
         {
             var result = await _productService.GetProductsAsync();
             return Ok(result);
         }
+
         [HttpGet]
         [Route("{id:Guid}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetProductsById(Guid id)
         {
             var result = await _productService.GetProductByIdAsync(id);
@@ -35,7 +37,9 @@ namespace GShop.ProductApi.Controllers
                 return NotFound();
             return Ok(result);
         }
+
         [HttpPost]
+        [Authorize(Roles = Role.Admin)]
         public async Task<IActionResult> CreateProduct([FromBody] ProductDTO productDTO)
         {
             if (productDTO is null)
@@ -47,6 +51,7 @@ namespace GShop.ProductApi.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = Role.Admin)]
         public async Task<IActionResult> UpdateProduct([FromBody] ProductDTO productDTO)
         {
 			if (productDTO is null)
