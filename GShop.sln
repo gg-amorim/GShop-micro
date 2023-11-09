@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GShop.Web", "GShop.Web\GSho
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GShop.IdentityServer", "GShop.IdentityServer\GShop.IdentityServer.csproj", "{80F37E8C-11EF-4E36-BE20-72F5E6FA0DF1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GShop.CartApi", "GShop.CartApi\GShop.CartApi.csproj", "{8967BADC-806B-4166-9980-59DBB6D17F98}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{80F37E8C-11EF-4E36-BE20-72F5E6FA0DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80F37E8C-11EF-4E36-BE20-72F5E6FA0DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80F37E8C-11EF-4E36-BE20-72F5E6FA0DF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8967BADC-806B-4166-9980-59DBB6D17F98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8967BADC-806B-4166-9980-59DBB6D17F98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8967BADC-806B-4166-9980-59DBB6D17F98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8967BADC-806B-4166-9980-59DBB6D17F98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{F9E384CF-5EC6-47EA-A8FB-0C7BAB66BE78} = {EA256A1C-0BE4-47B1-BF88-8A8871F7A999}
 		{819D5720-396F-4034-A454-1A57A2053D57} = {E43E5F09-E5CB-4A0C-A043-F3A721F26E19}
 		{80F37E8C-11EF-4E36-BE20-72F5E6FA0DF1} = {EA256A1C-0BE4-47B1-BF88-8A8871F7A999}
+		{8967BADC-806B-4166-9980-59DBB6D17F98} = {EA256A1C-0BE4-47B1-BF88-8A8871F7A999}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7D185DA6-1BEC-4477-B8AB-C3CED6E302DE}
